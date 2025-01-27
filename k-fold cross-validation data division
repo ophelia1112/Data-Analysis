@@ -1,0 +1,32 @@
+# k-fold cross-validation is used for small samples
+
+import numpy as np
+
+# conduct the random data samples use numpy, you can also use your own clean data, and this data represents nine samples with four kinds of features
+
+data=numpy.arange(36).reshape(9,4)
+
+# define the number of the "k" after your calculation and calculate the amounts of your samples in each fold
+
+k=4
+k_sample_amounts=data.shape[0]//k
+
+# splice the test data
+
+for fold in range(k):
+  validation_begin=k_sample_amounts*fold
+  validation_end=k_sample_amounts*(fold+1)
+  validation_data=[validation_begin:validation_end]
+  # train data
+  train_data=np.vstack([
+    data[:validation_begin],
+    data[validation_end:]
+  ])
+
+print(fold)
+print(f"test_data{validation_data}")
+print(f"train_data{train_data}")
+
+  
+
+
