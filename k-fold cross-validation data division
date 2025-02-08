@@ -1,4 +1,4 @@
-# k-fold cross-validation is used for small samples
+# K-fold cross-validation is used for small samples
 
 import numpy as np
 
